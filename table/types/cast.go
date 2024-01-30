@@ -29,6 +29,10 @@ func IsOptional(t Type) (isOptional bool, innerType Type) {
 	return false, nil
 }
 
+func IsNull(v Value) bool {
+	return value.IsNull(v)
+}
+
 // ToDecimal returns Decimal struct from abstract Value
 func ToDecimal(v Value) (*Decimal, error) {
 	if valuer, isDecimalValuer := v.(value.DecimalValuer); isDecimalValuer {

@@ -1179,6 +1179,14 @@ func NullValue(t Type) *optionalValue {
 	}
 }
 
+func IsNull(v Value) bool {
+	optional, ok := v.(*optionalValue)
+	if !ok {
+		return false
+	}
+	return optional.value == nil
+}
+
 type optionalValue struct {
 	innerType Type
 	value     Value
